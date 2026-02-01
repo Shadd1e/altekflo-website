@@ -3,198 +3,458 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    
     <title>AltekFlo | Commerce & WhatsApp Automation</title>
 
     <!-- Meta-safe description -->
-    <meta
-        name="description"
-        content="AltekFlo is a commerce and automation platform that helps businesses manage orders, payments, and customer communication through WhatsApp."
-    />
-
+    <meta name="description" content="AltekFlo is a commerce and automation platform that helps businesses manage orders, payments, and customer communication through WhatsApp." />
+    
+    <!-- Favicon (add your favicon.ico to root) -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    
+    <!-- Fonts (creative but professional) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@700;800&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+    
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
     <!-- =========================
-         HEADER / NAVIGATION
+         POPUP FORM (HIDDEN BY DEFAULT)
     ========================== -->
-    <header id="top">
-        <nav class="nav">
-            <div class="logo">
-                <strong>AltekFlo</strong>
+    <div class="form-popup" id="formPopup">
+        <div class="popup-overlay"></div>
+        <div class="popup-content">
+            <button class="popup-close" aria-label="Close popup">×</button>
+            
+            <div class="form-header">
+                <h2 class="section-title">Request Early Access</h2>
+                <p class="section-subtitle">Join businesses already automating with AltekFlo</p>
             </div>
 
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#whatsapp">WhatsApp Use</a></li>
-                <li><a href="#founder">Founder</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <form id="popup-form" class="access-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="popup_business_name" class="form-label">
+                            Business Name
+                        </label>
+                        <input type="text" id="popup_business_name" name="business_name" 
+                               class="form-input" required placeholder="Your Business Ltd." />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="popup_email" class="form-label">
+                            Contact Email
+                        </label>
+                        <input type="email" id="popup_email" name="email" 
+                               class="form-input" required placeholder="you@business.com" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="popup_whatsapp" class="form-label">
+                            WhatsApp Number
+                        </label>
+                        <input type="tel" id="popup_whatsapp" name="whatsapp" 
+                               class="form-input" required placeholder="+234 800 000 0000" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="popup_intended_use" class="form-label">
+                            Intended Use
+                        </label>
+                        <select id="popup_intended_use" name="intended_use" class="form-select" required>
+                            <option value="">Select primary use case</option>
+                            <option value="orders">Order management</option>
+                            <option value="payments">Payment tracking</option>
+                            <option value="support">Customer support</option>
+                            <option value="automation">Full workflow automation</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-footer">
+                    <button type="submit" class="btn primary-btn btn-submit">
+                        <span class="btn-text">Request Access</span>
+                        <span class="btn-icon">→</span>
+                    </button>
+                    <p class="form-note">
+                        We'll contact you within 24 hours to setup your account.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
 
-            <a href="#interest" class="btn primary-btn">Get Started</a>
+    <!-- =========================
+         HEADER / NAVIGATION
+    ========================== -->
+    <header id="top" class="site-header">
+        <nav class="nav container">
+            <div class="logo">
+                <!-- Dynamic logo - changes color based on background -->
+                <img src="assets/logo/logo-black.svg" alt="AltekFlo Logo" class="logo-image" id="logoImage">
+                <strong class="logo-text">AltekFlo</strong>
+            </div>
+
+            <!-- Mobile hamburger menu -->
+            <div class="mobile-menu">
+                <button class="hamburger-menu" aria-label="Toggle menu" id="hamburgerButton">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <div class="mobile-nav" id="mobileNav">
+                    <button class="close-menu" aria-label="Close menu" id="closeMenuButton">×</button>
+                    <ul class="mobile-nav-links">
+                        <li><a href="#about" class="mobile-nav-link">About</a></li>
+                        <li><a href="#whatsapp" class="mobile-nav-link">WhatsApp Use</a></li>
+                        <li><a href="#founder" class="mobile-nav-link">Founder</a></li>
+                        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+                        <li><a href="#" class="btn primary-btn mobile-get-started open-popup">Get Started</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Desktop navigation - HIDDEN BY DEFAULT -->
+            <div class="desktop-nav-container" id="desktopNav">
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#whatsapp" class="nav-link">WhatsApp Use</a></li>
+                    <li><a href="#founder" class="nav-link">Founder</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+
+                <a href="#" class="btn primary-btn nav-cta open-popup">Get Started</a>
+            </div>
+            
+            <!-- Desktop Menu Toggle Button -->
+            <button class="desktop-menu-toggle" id="desktopMenuToggle" aria-label="Toggle desktop menu">
+                <span>Menu</span>
+            </button>
         </nav>
     </header>
 
     <!-- =========================
          HERO SECTION
     ========================== -->
-    <section id="hero">
-        <div class="container">
-            <h1>
-                Commerce & Automation for Businesses Using WhatsApp
-            </h1>
+    <section id="hero" class="hero-section dark-section" aria-label="Main hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Commerce & Automation</span>
+                    <span class="title-line highlight">for Businesses Using WhatsApp</span>
+                </h1>
 
-            <p>
-                AltekFlo helps businesses manage orders, payments, and customer
-                communication through WhatsApp.
-            </p>
+                <p class="hero-subtitle">
+                    AltekFlo helps businesses manage orders, payments, and customer
+                    communication through WhatsApp with powerful automation.
+                </p>
 
-            <div class="hero-actions">
-                <a href="#interest" class="btn primary-btn">Get Started</a>
-                <a href="#contact" class="btn secondary-btn">Contact Us</a>
+                <div class="hero-actions">
+                    <a href="#" class="btn primary-btn btn-large open-popup">Get Started Free</a>
+                    <a href="#about" class="btn secondary-btn btn-large">Learn More</a>
+                </div>
+                
+                <div class="hero-features">
+                    <span class="feature-tag">
+                        <span class="feature-icon">✓</span>
+                        No-code setup
+                    </span>
+                    <span class="feature-tag">
+                        <span class="feature-icon">⚡</span>
+                        24/7 automation
+                    </span>
+                    <span class="feature-tag">
+                        <span class="feature-icon">📈</span>
+                        Sales tracking
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Visual with simple text elements -->
+            <div class="hero-visual" aria-hidden="true">
+                <div class="hero-visual-content">
+                </div>
             </div>
         </div>
     </section>
 
     <!-- =========================
-         ABOUT / WHAT ALTEKFLO DOES
+         ABOUT SECTION
     ========================== -->
-    <section id="about">
+    <section id="about" class="section about-section" aria-label="About AltekFlo">
         <div class="container">
-            <h2>What AltekFlo Does</h2>
+            <div class="section-header">
+                <h2 class="section-title">What AltekFlo Does</h2>
+                <p class="section-subtitle">Powerful tools to streamline your business communication</p>
+            </div>
 
-            <ul class="features">
-                <li>Order management for businesses</li>
-                <li>Payment tracking and confirmations</li>
-                <li>Customer communication via WhatsApp</li>
-                <li>Business workflow automation</li>
-            </ul>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-image-container">
+                        <!-- Background image for feature -->
+                        <div class="feature-image-bg" style="background-image: url('assets/images/order-management-bg.jpg');"></div>
+                        <div class="feature-image-overlay"></div>
+                    </div>
+                    <h3>Order Management</h3>
+                    <p>Track and manage orders seamlessly with automated updates</p>
+                </article>
+                
+                <article class="feature-card">
+                    <div class="feature-image-container">
+                        <!-- Background image for feature -->
+                        <div class="feature-image-bg" style="background-image: url('assets/images/payment-tracking-bg.jpg');"></div>
+                        <div class="feature-image-overlay"></div>
+                    </div>
+                    <h3>Payment Tracking</h3>
+                    <p>Real-time payment confirmations and reconciliation</p>
+                </article>
+                
+                <article class="feature-card">
+                    <div class="feature-image-container">
+                        <!-- Background image for feature -->
+                        <div class="feature-image-bg" style="background-image: url('assets/images/whatsapp-automation-bg.jpg');"></div>
+                        <div class="feature-image-overlay"></div>
+                    </div>
+                    <h3>WhatsApp Automation</h3>
+                    <p>Automated customer communication and support</p>
+                </article>
+                
+                <article class="feature-card">
+                    <div class="feature-image-container">
+                        <!-- Background image for feature -->
+                        <div class="feature-image-bg" style="background-image: url('assets/images/workflow-automation-bg.jpg');"></div>
+                        <div class="feature-image-overlay"></div>
+                    </div>
+                    <h3>Workflow Automation</h3>
+                    <p>Custom automations for your business processes</p>
+                </article>
+            </div>
         </div>
     </section>
 
     <!-- =========================
-         WHATSAPP USAGE (META-CRITICAL)
+         WHATSAPP SECTION
     ========================== -->
-    <section id="whatsapp">
+    <section id="whatsapp" class="section whatsapp-section dark-section" aria-label="WhatsApp Integration">
         <div class="container">
-            <h2>How WhatsApp Is Used</h2>
-
-            <p>
-                AltekFlo uses WhatsApp to send transactional messages such as
-                order confirmations, payment updates, and customer support
-                notifications for businesses using the platform.
-            </p>
+            <div class="content-split">
+                <div class="content-text">
+                    <h2 class="section-title">How WhatsApp Is Used</h2>
+                    <p class="lead">
+                        AltekFlo uses WhatsApp Business API to send <strong>transactional messages</strong> 
+                        within Meta's guidelines.
+                    </p>
+                    <ul class="benefits-list">
+                        <li>
+                            <span class="benefit-icon">✓</span>
+                            Order confirmations and updates
+                        </li>
+                        <li>
+                            <span class="benefit-icon">✓</span>
+                            Payment status notifications
+                        </li>
+                        <li>
+                            <span class="benefit-icon">✓</span>
+                            Customer support automation
+                        </li>
+                        <li>
+                            <span class="benefit-icon">✓</span>
+                            Delivery tracking alerts
+                        </li>
+                        <li>
+                            <span class="benefit-icon">✓</span>
+                            Abandoned cart reminders
+                        </li>
+                    </ul>
+                    <p class="note">
+                        <small>All messages are compliant with WhatsApp Business Policy</small>
+                    </p>
+                </div>
+                <div class="content-visual">
+                    <div class="whatsapp-flow">
+                        <!-- WhatsApp flow visualization with text -->
+                        <div class="flow-item">
+                            <div class="flow-image-bg" style="background-image: url('assets/images/message-flow-bg.jpg');"></div>
+                            <span class="flow-text"></span>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-item">
+                            <div class="flow-image-bg" style="background-image: url('assets/images/process-flow-bg.jpg');"></div>
+                            <span class="flow-text"></span>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-item">
+                            <div class="flow-image-bg" style="background-image: url('assets/images/deliver-flow-bg.jpg');"></div>
+                            <span class="flow-text"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- =========================
-         MEET THE FOUNDER
+         FOUNDER SECTION
     ========================== -->
-    <section id="founder">
+    <section id="founder" class="section founder-section" aria-label="Meet our founder">
         <div class="container">
-            <h2>Meet the Founder</h2>
-
-            <p>
-                <strong>
-                    <a href="https://your-personal-website.com" target="_blank" rel="noopener">
-                        Your Name
-                    </a>
-                </strong>
-            </p>
-
-            <p>
-                Founder of AltekFlo. Building practical commerce and automation
-                tools for businesses.
-            </p>
-
-            <!-- Optional image later -->
-            <!-- <img src="assets/images/founder.jpg" alt="Founder of AltekFlo" /> -->
-        </div>
-    </section>
-
-    <!-- =========================
-         INTEREST / EARLY ACCESS FORM
-    ========================== -->
-    <section id="interest">
-        <div class="container">
-            <h2>Request Access</h2>
-
-            <form id="interest-form">
-                <label>
-                    Business Name
-                    <input type="text" name="business_name" required />
-                </label>
-
-                <label>
-                    Contact Email
-                    <input type="email" name="email" required />
-                </label>
-
-                <label>
-                    WhatsApp Number
-                    <input type="tel" name="whatsapp" required />
-                </label>
-
-                <label>
-                    Intended Use
-                    <select name="intended_use" required>
-                        <option value="">Select one</option>
-                        <option value="orders">Order management</option>
-                        <option value="payments">Payments</option>
-                        <option value="support">Customer support</option>
-                        <option value="automation">Automation</option>
-                    </select>
-                </label>
-
-                <button type="submit" class="btn primary-btn">
-                    Request Access
-                </button>
-            </form>
+            <div class="founder-profile">
+                <div class="founder-image-container">
+                    <div class="founder-image-wrapper">
+                        <!-- Founder image -->
+                        <img src="assets/images/founder.jpg" alt="Founder of AltekFlo" class="founder-photo" id="founderPhoto">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+                
+                <div class="founder-info">
+                    <h2 class="section-title">Meet the Founder</h2>
+                    <h3 class="founder-name">
+                        <a href="https://your-personal-website.com" target="_blank" rel="noopener">
+                            Shadrach Nelson Snr.
+                        </a>
+                    </h3>
+                    <p class="founder-bio">
+                        Founder and CEO of AltekFlo. Passionate about building practical 
+                        commerce and automation tools that help businesses scale efficiently 
+                        through smart communication platforms.
+                    </p>
+                    <div class="founder-tags">
+                        <span class="tag">
+                            <span class="tag-icon">⚡</span>
+                            Automation Expert
+                        </span>
+                        <span class="tag">
+                            <span class="tag-icon">🏪</span>
+                            Commerce Solutions
+                        </span>
+                        <span class="tag">
+                            <span class="tag-icon">🔌</span>
+                            WhatsApp API
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- =========================
          CONTACT SECTION
     ========================== -->
-    <section id="contact">
+    <section id="contact" class="section contact-section dark-section" aria-label="Contact information">
         <div class="container">
-            <h2>Contact</h2>
-
-            <p>
-                Email:
-                <a href="mailto:support@altekflo.xyz">
-                    support@altekflo.xyz
-                </a>
-            </p>
-
-            <p>Country: Nigeria</p>
+            <h2 class="section-title">Get in Touch</h2>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-image-container">
+                        <div class="contact-image-bg" style="background-image: url('assets/images/email-bg.jpg');"></div>
+                    </div>
+                    <div>
+                        <h3>Email</h3>
+                        <p>
+                            <a href="mailto:support@altekflo.xyz" class="contact-link">
+                                support@altekflo.xyz
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-image-container">
+                        <div class="contact-image-bg" style="background-image: url('assets/images/location-bg.jpg');"></div>
+                    </div>
+                    <div>
+                        <h3>Location</h3>
+                        <p></p>
+                        <p class="contact-note">Serving businesses worldwide</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-image-container">
+                        <div class="contact-image-bg" style="background-image: url('assets/images/support-bg.jpg');"></div>
+                    </div>
+                    <div>
+                        <h3>Support Hours</h3>
+                        <p></p>
+                        <p>24/7 Automated Support</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- =========================
-         FOOTER (NON-NEGOTIABLE)
+         FOOTER
     ========================== -->
-    <footer>
-        <div class="container footer-content">
-            <p>© 2026 AltekFlo</p>
-
-            <p>
-                Operated by <strong>The AltekFlo Enterprise</strong> (Nigeria)
-            </p>
-
-            <p>
-                Contact:
-                <a href="mailto:support@altekflo.xyz">
-                    support@altekflo.xyz
-                </a>
-            </p>
-
-            <p class="legal-links">
-                <a href="legal/privacy-policy.html">Privacy Policy</a> |
-                <a href="legal/terms.html">Terms of Service</a>
-            </p>
+    <footer class="site-footer dark-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="assets/logo/logo-white.svg" alt="AltekFlo Logo" class="logo-image footer-logo">
+                        <strong class="logo-text">AltekFlo</strong>
+                    </div>
+                    <p class="footer-tagline">
+                        Commerce & WhatsApp Automation for Modern Businesses
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="#about">Features</a></li>
+                            <li><a href="#whatsapp">How It Works</a></li>
+                            <li><a href="#" class="open-popup">Get Started</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#founder">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="legal/privacy-policy.html">Privacy</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="legal/privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="legal/terms.html">Terms of Service</a></li>
+                            <li><a href="#contact">GDPR</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">
+                    © 2026 AltekFlo. Operated by <strong>The AltekFlo Enterprise</strong> (Nigeria)
+                </p>
+                
+                <div class="footer-meta">
+                    <p class="contact-email">
+                        Contact: 
+                        <a href="mailto:support@altekflo.xyz">support@altekflo.xyz</a>
+                    </p>
+                    <p class="compliance">
+                        Compliant with Meta WhatsApp Business Policy
+                    </p>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -202,4 +462,4 @@
     <script src="js/main.js"></script>
 
 </body>
-  </html>
+</html>

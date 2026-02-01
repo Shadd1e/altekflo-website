@@ -1,0 +1,40 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 512 512"
+  width="512"
+  height="512"
+>
+  <rect width="512" height="512" fill="none" />
+
+  <!-- Camera body (now blue) -->
+  <path
+    d="
+      M160 128
+      h160
+      a64 64 0 0 1 64 64
+      v128
+      a64 64 0 0 1 -64 64
+      H160
+      a96 96 0 0 1 0 -256
+      z
+    "
+    fill="#2414B6"
+  />
+
+  <!-- Camera side block -->
+  <rect
+    x="320"
+    y="128"
+    width="96"
+    height="256"
+    rx="48"
+    ry="48"
+    fill="#2414B6"
+  />
+
+  <!-- Play button (now white) -->
+  <polygon
+    points="210,180 210,332 330,256"
+    fill="#ffffff"
+  />
+</svg>
