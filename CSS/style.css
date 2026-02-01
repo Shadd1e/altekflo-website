@@ -1,0 +1,243 @@
+/* =========================
+   ROOT VARIABLES
+========================= */
+:root {
+    --royal-blue: #1f3cff;
+    --dark-text: #111111;
+    --light-text: #555555;
+    --bg-white: #ffffff;
+    --bg-light: #f7f8fc;
+    --border-light: #e5e7eb;
+}
+
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    color: var(--dark-text);
+    background-color: var(--bg-white);
+    line-height: 1.6;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* =========================
+   LINKS
+========================= */
+a {
+    color: var(--royal-blue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.primary-btn {
+    background-color: var(--royal-blue);
+    color: #ffffff;
+}
+
+.primary-btn:hover {
+    background-color: #162ecc;
+}
+
+.secondary-btn {
+    border: 2px solid var(--royal-blue);
+    color: var(--royal-blue);
+    background: transparent;
+}
+
+.secondary-btn:hover {
+    background-color: var(--royal-blue);
+    color: #ffffff;
+}
+
+/* =========================
+   HEADER / NAV
+========================= */
+header {
+    border-bottom: 1px solid var(--border-light);
+    background-color: var(--bg-white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--dark-text);
+    font-weight: 500;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+#hero {
+    padding: 80px 0;
+    background-color: var(--bg-light);
+}
+
+#hero h1 {
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+}
+
+#hero p {
+    max-width: 600px;
+    color: var(--light-text);
+    margin-bottom: 28px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+section {
+    padding: 70px 0;
+}
+
+section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   FEATURES LIST
+========================= */
+.features {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.features li {
+    margin-bottom: 10px;
+}
+
+/* =========================
+   FOUNDER SECTION
+========================= */
+#founder p {
+    max-width: 600px;
+}
+
+/* =========================
+   FORM
+========================= */
+form {
+    max-width: 500px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+}
+
+form button {
+    margin-top: 10px;
+}
+
+/* =========================
+   CONTACT
+========================= */
+#contact p {
+    margin-bottom: 10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    background-color: var(--bg-light);
+    padding: 30px 0;
+    border-top: 1px solid var(--border-light);
+}
+
+.footer-content p {
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+}
+
+.legal-links a {
+    margin: 0 6px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    #hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
