@@ -224,6 +224,7 @@ a {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent; 
 }
 
 /* Desktop Navigation Container */
@@ -437,8 +438,10 @@ a {
 
 .highlight {
     background: linear-gradient(90deg, var(--accent), var(--secondary));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 .hero-subtitle {
@@ -862,7 +865,11 @@ a {
 }
 
 .footer-brand .logo-text {
+    background: none;
+    background-clip: border-box;
+    -webkit-background-clip: border-box;
     -webkit-text-fill-color: white;
+    color: white;
 }
 
 .footer-tagline {

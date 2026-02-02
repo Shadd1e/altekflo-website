@@ -53,27 +53,35 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // =========================
+// =========================
     // MOBILE MENU TOGGLE
     // =========================
     const hamburgerButton = document.getElementById('hamburgerButton');
     const closeMenuButton = document.getElementById('closeMenuButton');
     const mobileNav = document.getElementById('mobileNav');
-    
-    if (hamburgerButton) {
-        hamburgerButton.addEventListener('click', function() {
-            mobileNav.classList.add('active');
-            this.classList.add('active');
+
+    if (hamburgerButton && mobileNav) {
+        hamburgerButton.addEventListener('click', function () {
+            this.classList.toggle('active');
+            mobileNav.classList.toggle('active');
         });
     }
-    
-    if (closeMenuButton) {
-        closeMenuButton.addEventListener('click', function() {
+
+    if (closeMenuButton && mobileNav && hamburgerButton) {
+        closeMenuButton.addEventListener('click', function () {
             mobileNav.classList.remove('active');
-            if (hamburgerButton) {
-                hamburgerButton.classList.remove('active');
-            }
+            hamburgerButton.classList.remove('active');
         });
     }
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', function () {
+            mobileNav.classList.remove('active');
+            hamburgerButton.classList.remove('active');
+        });
+    });
+
     
     // Close mobile menu when clicking on a link
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
