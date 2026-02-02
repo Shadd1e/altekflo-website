@@ -7,15 +7,15 @@
     <title>AltekFlo | Commerce & WhatsApp Automation</title>
 
     <!-- Meta-safe description -->
-    <meta name="description" content="AltekFlo is a registered technology company that provides sales and automation services for businesses. Ordaa, its WhatsApp-based software, helps manage orders, bookings, payments, and customer conversations." />
+    <meta name="description" content="AltekFlo is a registered technology company that provides sales and automation services for businesses. Ordaa, its WhatsApp-based software, helps businesses manage orders, bookings, payments, and customer conversations efficiently." />
     
-    <!-- Favicon -->
+    <!-- Favicon (add your favicon.ico to root) -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     
-    <!-- Fonts -->
+    <!-- Fonts (creative but professional) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@700;800&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
 <body>
 
     <!-- =========================
-         POPUP FORM
+         POPUP FORM (HIDDEN BY DEFAULT)
     ========================== -->
     <div class="form-popup" id="formPopup">
         <div class="popup-overlay"></div>
@@ -35,35 +35,46 @@
             
             <div class="form-header">
                 <h2 class="section-title">Request Early Access</h2>
-                <p class="section-subtitle">Tell us how your business plans to use Ordaa</p>
+                <p class="section-subtitle">Join businesses already automating with AltekFlo</p>
             </div>
 
             <form id="popup-form" class="access-form">
                 <div class="form-grid">
                     <div class="form-group">
-                        <label class="form-label">Business Name</label>
-                        <input type="text" class="form-input" required placeholder="Your Business Ltd." />
+                        <label for="popup_business_name" class="form-label">
+                            Business Name
+                        </label>
+                        <input type="text" id="popup_business_name" name="business_name" 
+                               class="form-input" required placeholder="Your Business Ltd." />
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label">Contact Email</label>
-                        <input type="email" class="form-input" required placeholder="you@business.com" />
+                        <label for="popup_email" class="form-label">
+                            Contact Email
+                        </label>
+                        <input type="email" id="popup_email" name="email" 
+                               class="form-input" required placeholder="you@business.com" />
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label">WhatsApp Number</label>
-                        <input type="tel" class="form-input" required placeholder="+234 800 000 0000" />
+                        <label for="popup_whatsapp" class="form-label">
+                            WhatsApp Number
+                        </label>
+                        <input type="tel" id="popup_whatsapp" name="whatsapp" 
+                               class="form-input" required placeholder="+234 800 000 0000" />
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label">Intended Use</label>
-                        <select class="form-select" required>
+                        <label for="popup_intended_use" class="form-label">
+                            Intended Use
+                        </label>
+                        <select id="popup_intended_use" name="intended_use" class="form-select" required>
                             <option value="">Select primary use case</option>
-                            <option>Orders</option>
-                            <option>Bookings</option>
-                            <option>Payments</option>
-                            <option>Customer support</option>
-                            <option>Automation</option>
+                            <option value="orders">Order management</option>
+                            <option value="payments">Payment tracking</option>
+                            <option value="support">Customer support</option>
+                            <option value="automation">Full workflow automation</option>
+                            <option value="other">Other</option>
                         </select>
                     </div>
                 </div>
@@ -74,7 +85,7 @@
                         <span class="btn-icon">→</span>
                     </button>
                     <p class="form-note">
-                        A member of the AltekFlo team will follow up with next steps.
+                        We'll contact you within 24 hours to setup your account.
                     </p>
                 </div>
             </form>
@@ -82,103 +93,305 @@
     </div>
 
     <!-- =========================
-         HEADER
+         HEADER / NAVIGATION
     ========================== -->
-    <header class="site-header">
+    <header id="top" class="site-header">
         <nav class="nav container">
             <div class="logo">
+                <!-- Dynamic logo - changes color based on background -->
                 <img src="assets/logo/logo-black.svg" alt="AltekFlo Logo" class="logo-image" id="logoImage">
                 <strong class="logo-text">AltekFlo</strong>
             </div>
+
+            <!-- Mobile hamburger menu -->
+            <div class="mobile-menu">
+                <button class="hamburger-menu" aria-label="Toggle menu" id="hamburgerButton">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <div class="mobile-nav" id="mobileNav">
+                    <button class="close-menu" aria-label="Close menu" id="closeMenuButton">×</button>
+                    <ul class="mobile-nav-links">
+                        <li><a href="#about" class="mobile-nav-link">About</a></li>
+                        <li><a href="#whatsapp" class="mobile-nav-link">WhatsApp Use</a></li>
+                        <li><a href="#founder" class="mobile-nav-link">Founder</a></li>
+                        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+                        <li><a href="#" class="btn primary-btn mobile-get-started open-popup">Get Started</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Desktop navigation - HIDDEN BY DEFAULT -->
+            <div class="desktop-nav-container" id="desktopNav">
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#whatsapp" class="nav-link">WhatsApp Use</a></li>
+                    <li><a href="#founder" class="nav-link">Founder</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+
+                <a href="#" class="btn primary-btn nav-cta open-popup">Get Started</a>
+            </div>
+            
+            <!-- Desktop Menu Toggle Button -->
+            <button class="desktop-menu-toggle" id="desktopMenuToggle" aria-label="Toggle desktop menu">
+                <span>Menu</span>
+            </button>
         </nav>
     </header>
 
     <!-- =========================
-         HERO
+         HERO SECTION
     ========================== -->
-    <section class="hero-section dark-section">
+    <section id="hero" class="hero-section dark-section" aria-label="Main hero">
         <div class="container hero-content">
             <div class="hero-text">
                 <h1 class="hero-title">
-                    <span class="title-line">Sales & Automation</span>
-                    <span class="title-line highlight">Built Around WhatsApp</span>
+                    <span class="title-line">Commerce & Automation</span>
+                    <span class="title-line highlight">for Businesses Using WhatsApp</span>
                 </h1>
 
                 <p class="hero-subtitle">
-                    AltekFlo is a technology company that helps businesses sell faster and operate efficiently.
-                    Ordaa, our WhatsApp-based system, structures orders, bookings, payments, and customer conversations into clear, trackable workflows.
+                    AltekFlo is a technology company that helps businesses sell faster and operate efficiently. Through Ordaa—our WhatsApp-based platform—we enable order handling, bookings, payments, and structured customer conversations in one place.
                 </p>
 
                 <div class="hero-actions">
-                    <a href="#" class="btn primary-btn btn-large open-popup">Get Started</a>
+                    <a href="#" class="btn primary-btn btn-large open-popup">Get Started Free</a>
                     <a href="#about" class="btn secondary-btn btn-large">Learn More</a>
                 </div>
                 
                 <div class="hero-features">
-                    <span class="feature-tag">No-code WhatsApp workflows</span>
-                    <span class="feature-tag">Order & booking tracking</span>
-                    <span class="feature-tag">Operational automation</span>
+                    <span class="feature-tag">
+                        <span class="feature-icon">✓</span>
+                        No-code WhatsApp workflows
+                    </span>
+                    <span class="feature-tag">
+                        <span class="feature-icon">⚡</span>
+                        Automated customer handling
+                    </span>
+                    <span class="feature-tag">
+                        <span class="feature-icon">📈</span>
+                        Order & booking tracking
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Visual with simple text elements -->
+            <div class="hero-visual" aria-hidden="true">
+                <div class="hero-visual-content">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- =========================
-         ABOUT
+         ABOUT SECTION
     ========================== -->
-    <section id="about" class="section about-section">
+    <section id="about" class="section about-section" aria-label="About AltekFlo">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">What AltekFlo Provides</h2>
-                <p class="section-subtitle">
-                    Practical systems that help businesses handle sales, requests, and customer interactions more efficiently
-                </p>
+                <h2 class="section-title">What AltekFlo Does</h2>
+                <p class="section-subtitle">Practical tools designed to help businesses close sales, manage requests, and serve customers more efficiently</p>
             </div>
 
             <div class="features-grid">
                 <article class="feature-card">
+                    <div class="feature-image-container">
+                        <!-- Background image for feature -->
+                        <div class="feature-image-bg" style="background-image: url('assets/images/order-management-bg.jpg');"></div>
+                        <div class="feature-image-overlay"></div>
+                    </div>
                     <h3>Order Management</h3>
-                    <p>
-                        Ordaa converts WhatsApp conversations into structured orders. Businesses can receive requests, confirm details, track order status, and avoid losing sales in unorganized chats.
-                    </p>
+                    <p>Receive, organize, and process customer orders directly from WhatsApp. Ordaa helps businesses move from casual chats to structured orders, ensuring nothing is missed and every request is tracked from start to completion.</p>
                 </article>
                 
                 <article class="feature-card">
+                    <div class="feature-image-container">
+                        <!-- Background image for feature -->
+                        <div class="feature-image-bg" style="background-image: url('assets/images/payment-tracking-bg.jpg');"></div>
+                        <div class="feature-image-overlay"></div>
+                    </div>
                     <h3>Payment Tracking</h3>
-                    <p>
-                        Link payments to specific orders or bookings. Businesses can clearly see what has been paid, what is pending, and what requires follow-up—reducing errors and disputes.
-                    </p>
+                    <p>Track payment status linked to orders without relying on scattered messages. Businesses can clearly see what has been paid, what is pending, and what requires confirmation—reducing confusion and disputes.</p>
                 </article>
                 
                 <article class="feature-card">
+                    <div class="feature-image-container">
+                        <!-- Background image for feature -->
+                        <div class="feature-image-bg" style="background-image: url('assets/images/whatsapp-automation-bg.jpg');"></div>
+                        <div class="feature-image-overlay"></div>
+                    </div>
                     <h3>WhatsApp Automation</h3>
-                    <p>
-                        Handle transactional messages such as confirmations, updates, reminders, and support replies through WhatsApp in a controlled, policy-compliant way.
-                    </p>
+                    <p>Ordaa uses WhatsApp to handle transactional conversations such as order confirmations, booking responses, payment updates, and support replies—helping businesses respond faster while staying compliant with Meta policies.</p>
                 </article>
                 
                 <article class="feature-card">
-                    <h3>Booking & Workflow Automation</h3>
-                    <p>
-                        Automate service bookings, appointment requests, and repeat business processes using workflows designed around how customers already communicate on WhatsApp.
-                    </p>
+                    <div class="feature-image-container">
+                        <!-- Background image for feature -->
+                        <div class="feature-image-bg" style="background-image: url('assets/images/workflow-automation-bg.jpg');"></div>
+                        <div class="feature-image-overlay"></div>
+                    </div>
+                    <h3>Workflow Automation</h3>
+                    <p>Automate common business flows like order intake, service bookings, customer follow-ups, and status updates. Each workflow is designed around how businesses already use WhatsApp—just more structured and reliable.</p>
                 </article>
             </div>
         </div>
     </section>
 
     <!-- =========================
-         WHATSAPP
+         WHATSAPP SECTION
     ========================== -->
-    <section class="section whatsapp-section dark-section">
+    <section id="whatsapp" class="section whatsapp-section dark-section" aria-label="WhatsApp Integration">
         <div class="container">
-            <h2 class="section-title">How WhatsApp Is Used</h2>
-            <p class="lead">
-                Ordaa uses the WhatsApp Business Platform strictly for transactional and operational communication, including orders, bookings, payments, and customer support, in line with Meta policies.
-            </p>
-            <p class="note">
-                <small>No unsolicited marketing or spam messaging is sent.</small>
-            </p>
+            <div class="content-split">
+                <div class="content-text">
+                    <h2 class="section-title">How WhatsApp Is Used</h2>
+                    <p class="lead">
+                        Ordaa, a product by AltekFlo, uses the WhatsApp Business Platform to support transactional business communication. Messages are limited to operational use cases such as orders, bookings, payments, and customer support, in line with Meta policies.
+                    </p>
+                    <ul class="benefits-list">
+                        <li>
+                            <span class="benefit-icon">✓</span>
+                            Order confirmations and updates
+                        </li>
+                        <li>
+                            <span class="benefit-icon">✓</span>
+                            Payment status notifications
+                        </li>
+                        <li>
+                            <span class="benefit-icon">✓</span>
+                            Customer support automation
+                        </li>
+                        <li>
+                            <span class="benefit-icon">✓</span>
+                            Delivery tracking alerts
+                        </li>
+                        <li>
+                            <span class="benefit-icon">✓</span>
+                            Order and request status updates
+                        </li>
+                    </ul>
+                    <p class="note">
+                        <small>All messages are compliant with WhatsApp Business Policy</small>
+                    </p>
+                </div>
+                <div class="content-visual">
+                    <div class="whatsapp-flow">
+                        <!-- WhatsApp flow visualization with text -->
+                        <div class="flow-item">
+                            <div class="flow-image-bg" style="background-image: url('assets/images/message-flow-bg.jpg');"></div>
+                            <span class="flow-text"></span>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-item">
+                            <div class="flow-image-bg" style="background-image: url('assets/images/process-flow-bg.jpg');"></div>
+                            <span class="flow-text"></span>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-item">
+                            <div class="flow-image-bg" style="background-image: url('assets/images/deliver-flow-bg.jpg');"></div>
+                            <span class="flow-text"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================
+         FOUNDER SECTION
+    ========================== -->
+    <section id="founder" class="section founder-section" aria-label="Meet our founder">
+        <div class="container">
+            <div class="founder-profile">
+                <div class="founder-image-container">
+                    <div class="founder-image-wrapper">
+                        <!-- Founder image -->
+                        <img src="assets/images/founder.jpg" alt="Founder of AltekFlo" class="founder-photo" id="founderPhoto">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+                
+                <div class="founder-info">
+                    <h3 class="section-title"></h3>
+                    <h3 class="founder-name">
+                        <a href="https://your-personal-website.com" target="_blank" rel="noopener">
+                            About the Founder
+                        </a>
+                    </h3>
+                    <p class="founder-bio">
+                        Shadrach "Shaddie" Nelson is a Nigerian software engineer, writer, and builder focused on making technology work better for everyday life—especially around money and automation.
+                    </p>
+
+                    <p class="founder-bio">
+                        There’s also the writing—award-winning books that approach storytelling with the same care that goes into product design. Good code, like good writing, should be clear and human.
+                    </p>
+
+                    <div class="founder-tags">
+                        <span class="tag">
+                            <span class="tag-icon">⚡</span>
+                            Automation Expert
+                        </span>
+                        <span class="tag">
+                            <span class="tag-icon">🏪</span>
+                            Commerce Solutions
+                        </span>
+                        <span class="tag">
+                            <span class="tag-icon">🔌</span>
+                            WhatsApp API
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================
+         CONTACT SECTION
+    ========================== -->
+    <section id="contact" class="section contact-section dark-section" aria-label="Contact information">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-image-container">
+                        <div class="contact-image-bg" style="background-image: url('assets/images/email-bg.jpg');"></div>
+                    </div>
+                    <div>
+                        <h3>Email</h3>
+                        <p>
+                            <a href="mailto:support@altekflo.xyz" class="contact-link">
+                                support@altekflo.xyz
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-image-container">
+                        <div class="contact-image-bg" style="background-image: url('assets/images/location-bg.jpg');"></div>
+                    </div>
+                    <div>
+                        <h3>Location</h3>
+                        <p></p>
+                        <p class="contact-note">Operating from Nigeria, serving businesses locally and internationally</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-image-container">
+                        <div class="contact-image-bg" style="background-image: url('assets/images/support-bg.jpg');"></div>
+                    </div>
+                    <div>
+                        <h3>Support Hours</h3>
+                        <p></p>
+                        <p>24/7 Automated Support</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -187,18 +400,66 @@
     ========================== -->
     <footer class="site-footer dark-section">
         <div class="container">
-            <p>
-                © 2026 AltekFlo. Operated by <strong>The AltekFlo Enterprise</strong> (Nigeria)
-            </p>
-            <p>
-                Contact: <a href="mailto:support@altekflo.xyz">support@altekflo.xyz</a>
-            </p>
-            <p class="compliance">
-                Compliant with Meta WhatsApp Business Policy
-            </p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="assets/logo/logo-white.svg" alt="AltekFlo Logo" class="logo-image footer-logo">
+                        <strong class="logo-text">AltekFlo</strong>
+                    </div>
+                    <p class="footer-tagline">
+                        Business automation and sales tools powered by WhatsApp
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="#about">Features</a></li>
+                            <li><a href="#whatsapp">How It Works</a></li>
+                            <li><a href="#" class="open-popup">Get Started</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#founder">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="legal/privacy-policy.html">Privacy</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="legal/privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="legal/terms.html">Terms of Service</a></li>
+                            <li><a href="#contact">GDPR</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">
+                    © 2026 AltekFlo. Operated by <strong>The AltekFlo Enterprise</strong> (Nigeria)
+                </p>
+                
+                <div class="footer-meta">
+                    <p class="contact-email">
+                        Contact: 
+                        <a href="mailto:support@altekflo.xyz">support@altekflo.xyz</a>
+                    </p>
+                    <p class="compliance">
+                        Compliant with Meta WhatsApp Business Policy
+                    </p>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="js/main.js"></script>
 
 </body>
