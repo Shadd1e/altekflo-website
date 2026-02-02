@@ -740,11 +740,46 @@ a {
     margin-bottom: var(--spacing-lg);
 }
 
-.founder-tags {
+/* Founder Social Links Styling - ADDED THIS */
+.founder-social-links {
     display: flex;
-    gap: var(--spacing-sm);
-    justify-content: center;
     flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.social-link:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.social-icon {
+    font-size: 1.2rem;
+}
+
+.social-text {
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* Remove old founder-tags styles since we're using social links instead */
+.founder-tags {
+    display: none;
 }
 
 .tag {
@@ -1090,7 +1125,7 @@ a {
         text-align: left;
     }
     
-    .founder-tags {
+    .founder-social-links {
         justify-content: flex-start;
     }
     
